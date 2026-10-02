@@ -1,15 +1,16 @@
 {
-	"required": true,
-	"package": "archives.tater.coolingconduit.mixin",
-	"compatibilityLevel": "JAVA_21",
-	"mixins": [
-		"BucketItemMixin",
-		"ConduitBlockEntityAccessor"
-	],
-	"injectors": {
-		"defaultRequire": 1
-	},
-	"overwrites": {
-		"requireAnnotations": true
+  "required": true,
+  "package": "archives.tater.coolingconduit.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "mixins": [
+    "BucketItemMixin",
+    "ConduitBlockEntityAccessor",
+    "IceBlockMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "overwrites": {
+    "requireAnnotations": true
 	}
 }
