@@ -11,9 +11,6 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.BucketItem;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.phys.BlockHitResult;
-
-import org.jetbrains.annotations.Nullable;
 
 @Mixin(BucketItem.class)
 public class BucketItemMixin {
@@ -21,7 +18,7 @@ public class BucketItemMixin {
 			method = "emptyContents",
 			at = @At(value = "INVOKE", target = "Lnet/minecraft/world/level/material/Fluid;is(Lnet/minecraft/tags/TagKey;)Z")
 	)
-	private boolean allowWater(boolean original, Player player, Level level, BlockPos pos, @Nullable BlockHitResult result) {
+	private boolean allowWater(boolean original, Player player, Level level, BlockPos pos) {
 		if (!original) return false;
 		if (!(level instanceof ServerLevel serverLevel)) return true;
 
