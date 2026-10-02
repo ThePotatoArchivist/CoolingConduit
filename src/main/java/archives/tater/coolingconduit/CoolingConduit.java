@@ -32,13 +32,13 @@ public class CoolingConduit implements ModInitializer {
 
 	public static final PoiType ULTRAWARM_COOLER = PointOfInterestHelper.register(id("ultrawarm_cooler"), 0, 96, Blocks.CONDUIT);
 
-	public static int getConduitRange(ConduitBlockEntity conduit) {
-		return conduit.isActive() ? ((ConduitBlockEntityAccessor) conduit).getEffectBlocks().size() / 7 * 16 : 2;
+	public static int getConduitRangeSquare(ConduitBlockEntity conduit) {
+		return conduit.isActive() ? square(((ConduitBlockEntityAccessor) conduit).getEffectBlocks().size() / 7 * 16) : 3;
 	}
 
 	public static boolean isWithinConduitRange(ServerLevel level, BlockPos pos) {
 		return level.getPoiManager().findAll(type -> type.value() == CoolingConduit.ULTRAWARM_COOLER, pos2 -> true, pos, 96, PoiManager.Occupancy.ANY)
-				.anyMatch(pos2 -> level.getBlockEntity(pos2) instanceof ConduitBlockEntity conduit && pos.distSqr(pos2) <= square(getConduitRange(conduit)));
+				.anyMatch(pos2 -> level.getBlockEntity(pos2) instanceof ConduitBlockEntity conduit && pos.distSqr(pos2) <= getConduitRangeSquare(conduit));
 	}
 
 	@Override
