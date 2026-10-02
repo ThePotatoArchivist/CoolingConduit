@@ -5,8 +5,8 @@
   "mixins": [
     "BucketItemMixin",
     "ConduitBlockEntityAccessor",
-    "IceBlockMixin",
-    "LiquidBlockMixin"
+    "FlowingFluidMixin",
+    "IceBlockMixin"
   ],
   "injectors": {
     "defaultRequire": 1
